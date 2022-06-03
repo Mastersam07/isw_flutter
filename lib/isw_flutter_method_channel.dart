@@ -24,19 +24,27 @@ class MethodChannelIswFlutter extends IswFlutterPlatform {
   @override
   Future<bool?> initialize(IswSdkConfig config,
       [Environment env = Environment.test]) {
-    final init = methodChannel.invokeMethod<bool>(
-        'initialize', {'config': config.toMap(), 'env': nameOf(env)});
-    return init;
+    try {
+      final init = methodChannel.invokeMethod<bool>(
+          'initialize', {'config': config.toMap(), 'env': nameOf(env)});
+      return init;
+    } catch (e) {
+      throw 'Unable to configure sdk';
+    }
   }
 
   @override
   Future<Optional<IswPaymentResult>> pay(IswPaymentInfo info) async {
-    final result =
-        await methodChannel.invokeMethod('pay', {'paymentInfo': info.toMap()});
-    if (result == null) {
-      return Optional(result, false);
-    } else {
-      return Optional(IswPaymentResult.fromJson(result), true);
+    try {
+      final result = await methodChannel
+          .invokeMethod('pay', {'paymentInfo': info.toMap()});
+      if (result == null) {
+        return Optional(result, false);
+      } else {
+        return Optional(IswPaymentResult.fromJson(result), true);
+      }
+    } catch (e) {
+      throw 'Unable to complete payment';
     }
   }
 }

@@ -24,7 +24,7 @@ public class SwiftIswFlutterPlugin: NSObject, FlutterPlugin {
             let clientSecret = configMap["merchantSecret"]
             let clientId = configMap["merchantId"]
             let currencyCode = configMap["currencyCode"]
-            let usedEnv = env == "test" ? Environment.sandbox : Environment.production
+        let usedEnv = env == "test" ? Environment.sandbox : Environment.production
             if (merchantCode == nil ){
                 result(false)
             }else if (clientSecret == nil){
