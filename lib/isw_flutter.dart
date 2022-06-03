@@ -3,6 +3,7 @@ import 'isw_flutter_platform_interface.dart';
 import 'models/config.dart';
 import 'models/payment_info.dart';
 import 'models/payment_result.dart';
+export 'models/models.dart';
 
 class IswFlutter {
   Future<String?> getPlatformVersion() {

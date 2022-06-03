@@ -5,11 +5,11 @@
 Pod::Spec.new do |s|
   s.name             = 'isw_flutter'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'A plugin for making payment with interswitch mobile payment sdk.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+  A plugin for making payment with interswitch mobile payment sdk.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/Mastersam07/isw_flutter'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
@@ -20,4 +20,8 @@ A new Flutter plugin project.
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
+
+  s.preserve_paths = 'IswMobileSdk.xcframework/**/*'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework IswMobileSdk' }
+  s.vendored_frameworks = 'IswMobileSdk.xcframework'
 end
