@@ -1,5 +1,5 @@
 name: isw_flutter
-description: A new Flutter plugin project.
+description: A flutter plugin for making payment with interswitch mobile payment sdk
 version: 0.0.1
 homepage:
 

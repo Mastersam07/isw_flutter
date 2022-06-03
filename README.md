@@ -1,6 +1,6 @@
 # isw_flutter
 
-A new Flutter plugin project.
+A flutter plugin for making payment with interswitch mobile payment sdk.
 
 ## Getting Started
 
