@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - isw_flutter (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - isw_flutter (from `.symlinks/plugins/isw_flutter/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  isw_flutter:
+    :path: ".symlinks/plugins/isw_flutter/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  isw_flutter: 9a8e2b7bffc9b034afd040cdbf78fae0f72eee5f
+
+PODFILE CHECKSUM: 5409b2860ce87422e58c8517888f6dea1e20bc7d
+
+COCOAPODS: 1.11.3
