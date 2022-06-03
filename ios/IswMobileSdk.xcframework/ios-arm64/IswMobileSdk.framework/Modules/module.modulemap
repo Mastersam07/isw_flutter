@@ -1,0 +1,4 @@
+framework module IswMobileSdk {
+  header "IswMobileSdk-Swift.h"
+  requires objc
+}

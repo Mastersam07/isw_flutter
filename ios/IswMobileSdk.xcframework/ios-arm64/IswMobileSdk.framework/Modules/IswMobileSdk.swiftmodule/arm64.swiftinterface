@@ -1,0 +1,64 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IswMobileSdk
+import Foundation
+import Swift
+import UIKit
+import WebKit
+public class IswSdkConfig {
+  public init(clientId: Swift.String, clientSecret: Swift.String, currencyCode: Swift.String, merchantCode: Swift.String)
+  public init(currencyCode: Swift.String)
+  @objc deinit
+}
+public class IswPaymentInfo {
+  public init(customerId: Swift.String, customerName: Swift.String, customerEmail: Swift.String, customerMobile: Swift.String, reference: Swift.String, amount: Swift.Int)
+  convenience public init(customerId: Swift.String, customerName: Swift.String, customerEmail: Swift.String, customerMobile: Swift.String, reference: Swift.String, amount: Swift.Int, settlementAccounts: [IswSettlementAccount])
+  public func with(accessToken: Swift.String)
+  @objc deinit
+}
+public struct IswSettlementAccount : Swift.Encodable {
+  public init(alias: Swift.String, amount: Swift.Int, percentage: Swift.Double, description: Swift.String, isPrimary: Swift.Bool)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct IswPaymentResult {
+  public let amount: Swift.Int
+  public let responseCode: Swift.String
+  public let responseDescription: Swift.String
+  public let isSuccessful: Swift.Bool
+  public let transactionReference: Swift.String
+  public let channel: IswPaymentChannel
+}
+public enum Environment {
+  case production, sandbox, test
+  public static func == (a: Environment, b: Environment) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum IswPaymentChannel {
+  case card, wallet, ussd, qr
+  public static func == (a: IswPaymentChannel, b: IswPaymentChannel) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension UIResponder {
+  public static var current: UIKit.UIResponder? {
+    get
+  }
+}
+public protocol IswPaymentDelegate : AnyObject {
+  func onUserDidCancel()
+  func onUserDidCompletePayment(result: IswPaymentResult)
+}
+final public class IswMobileSdk {
+  public init(config: IswSdkConfig, env: Environment)
+  public static func pay(on controller: UIKit.UIViewController, with info: IswPaymentInfo, call delegate: IswPaymentDelegate)
+  public static func intialize(config: IswSdkConfig, env: Environment = .test)
+  @objc deinit
+}
+extension Environment : Swift.Hashable {}
+extension IswPaymentChannel : Swift.Equatable {}
+extension IswPaymentChannel : Swift.Hashable {}

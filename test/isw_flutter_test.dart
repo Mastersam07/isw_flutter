@@ -3,9 +3,6 @@ import 'package:isw_flutter/enums.dart';
 import 'package:isw_flutter/isw_flutter.dart';
 import 'package:isw_flutter/isw_flutter_platform_interface.dart';
 import 'package:isw_flutter/isw_flutter_method_channel.dart';
-import 'package:isw_flutter/models/config.dart';
-import 'package:isw_flutter/models/payment_result.dart';
-import 'package:isw_flutter/models/payment_info.dart';
 import 'package:isw_flutter/util.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 

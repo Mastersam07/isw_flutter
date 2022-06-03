@@ -36,7 +36,14 @@ void main() {
             case 'initialize':
               return true;
             case 'pay':
-              return null;
+              return {
+                "isSuccessful": "true",
+                "responseCode": "00",
+                "responseDescription": "Successful",
+                "transactionReference": "transactionReference",
+                "amount": "500",
+                "channel": "card"
+              };
           }
         },
       );
@@ -56,8 +63,13 @@ void main() {
     expect(init, true);
   });
 
-  test('pay', () async {
+  test('pay has data', () async {
     Optional<IswPaymentResult> pay = await platform.pay(info);
-    expect(pay.runtimeType, Optional<IswPaymentResult>);
+    expect(pay.hasValue, true);
+  });
+
+  test('pay has correct amount', () async {
+    Optional<IswPaymentResult> pay = await platform.pay(info);
+    expect(pay.value?.amount, 500);
   });
 }

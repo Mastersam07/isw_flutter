@@ -49,7 +49,7 @@ class IswFlutterPlugin: FlutterPlugin, MethodCallHandler {
 
     private fun getConfig(configMap: Map<String, String>?, env: String?): IswSdkConfig {
           // extract configurations
-          val merchantId = configMap!!["merchantId"]
+          val merchantId = configMap["merchantId"]
           val merchantSecret = configMap["merchantSecret"]
           val merchantCode = configMap["merchantCode"]
           val currencyCode = configMap["currencyCode"]
