@@ -78,7 +78,8 @@ class _MyAppState extends State<MyApp> {
             children: [
               TextButton.icon(
                 onPressed: payNow,
-                icon: const Icon(Icons.wallet, size: 50),
+                icon:
+                    const Icon(Icons.account_balance_wallet_rounded, size: 50),
                 label: const Text('Pay Now'),
               ),
               Text('Running on: $_platformVersion\n'),
